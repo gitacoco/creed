@@ -160,7 +160,7 @@ test("Open setup uses a versioned readiness RPC and deterministic owner record",
     "apps/open/supabase/migrations/20260817213100_personal_onboarding_replace_placeholder.sql",
   ).toLowerCase();
   assert.match(setup, /creed_schema_version/);
-  assert.match(setup, /REQUIRED_OPEN_SCHEMA_VERSION = "20260818034113"/);
+  assert.match(setup, /REQUIRED_OPEN_SCHEMA_VERSION = "20260818034733"/);
   assert.match(claim, /creed_installation/);
   assert.doesNotMatch(claim, /listUsers/);
   assert.match(migration, /create table if not exists public\.creed_installation/);
@@ -175,7 +175,7 @@ test("Open setup uses a versioned readiness RPC and deterministic owner record",
 
 test("Open members can read the content they update", () => {
   const migration = read(
-    "apps/open/supabase/migrations/20260818034113_allow_member_content_reads.sql",
+    "apps/open/supabase/migrations/20260818034733_allow_member_content_reads.sql",
   ).toLowerCase();
 
   for (const table of ["creed_sections", "creed_proposals", "creed_activity"]) {
